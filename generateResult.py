@@ -56,7 +56,7 @@ class GenerateHandler(webapp2.RequestHandler):
 
     def post(self):
         action = self.request.get('button')
-        if action =='Add':
+        if action =='Add in your List':
             stringVal = self.request.get('searchVal')
             stringVal = stringVal.lower()
             user = users.get_current_user()
@@ -79,4 +79,4 @@ class GenerateHandler(webapp2.RequestHandler):
                 myuser.put()
 
                 functions.store_sub_anagrams_key_exists(stringVal, anagram_id, anagram_key, myuser)
-        self.redirect('/generateResult?searchVal='+stringVal+'&button=Generate')
+            self.redirect('/generateResult?searchVal='+stringVal+'&button=Generate')

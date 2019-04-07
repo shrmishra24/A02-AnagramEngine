@@ -47,8 +47,6 @@ class AnagramHandler(webapp2.RequestHandler):
             user = users.get_current_user()
             myuser_key = ndb.Key('MyUser', user.user_id())
             myuser = myuser_key.get()
-
-
             anagram_id = myuser.key.id() + '/' + functions.sorting(stringVal) #appending the user key with sorted anagram
             anagram_key = ndb.Key(AnagramStringsDB, anagram_id)
             userAnagramString = anagram_key.get()

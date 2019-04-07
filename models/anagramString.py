@@ -4,5 +4,5 @@ class AnagramStringsDB(ndb.Model):
     sortedString = ndb.StringProperty()
     length = ndb.IntegerProperty()
     user_id = ndb.StringProperty()
-    counter1 = ndb.IntegerProperty()
+    counter1 = ndb.IntegerProperty(default = 0)
     counter2 = ndb.IntegerProperty()

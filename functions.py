@@ -20,6 +20,7 @@ def add_anagram_if_exists(stringVal,anagram_key):
     anagramDB = anagram_key.get()
     if stringVal not in anagramDB.stringVal:
         anagramDB.stringVal.append(stringVal)
+        anagramDB.counter1 = anagramDB.counter1+1
         anagramDB.put()
 
 
@@ -29,6 +30,7 @@ def add_new_anagram(stringVal, anagram_id, anagram_key, myuser):
     anagramDB.sortedString = sorting(stringVal)
     anagramDB.length = len(stringVal)
     anagramDB.user_id = myuser.key.id()
+    anagramDB.counter1 = anagramDB.counter1+1
     anagramDB.put()
 
 
@@ -81,6 +83,7 @@ def store_sub_anagrams_key_exists(stringVal, anagram_id, anagram_key, myuser):
         logging.debug(x)
         if x not in anagramDB.stringVal:
             anagramDB.stringVal.append(x)
+            anagramDB.counter1 = anagramDB.counter1+1
             anagramDB.put()
 
 def store_sub_anagrams_no_key_exists(stringVal, anagram_id, anagram_key, myuser):
@@ -92,4 +95,5 @@ def store_sub_anagrams_no_key_exists(stringVal, anagram_id, anagram_key, myuser)
         anagramDB.sortedString = sorting(stringVal)
         anagramDB.length = len(stringVal)
         anagramDB.user_id = myuser.key.id()
+        anagramDB.counter1 = anagramDB.counter1+1
         anagramDB.put()
