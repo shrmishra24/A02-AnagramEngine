@@ -93,6 +93,7 @@
       <a href="/view"><i class="fa fa-eye"></i>View Anagrams</a>
       <a href="/search"><i class="fa fa-fw fa-search"></i>Search</a>
       <a href="/generate"><i class="fa fa-pencil"></i>Generate Anagram</a>
+      <a href="/file"><i class="fa fa-upload"></i>Upload File</a>
       <a style="float:right"  href="{{ logout_url }}"><i class="fa fa-sign-out"></i>Logout</a>
   </div>
     <div class ="header">
@@ -130,12 +131,16 @@
       {% endif %}
     </div><br>
     <div class= "form" id = "cnt1">
-      <script>var cnt=0;</script>
+      <script>
+        var cnt = 0;
+        var cnt2 = 0;
+      </script>
         {% for anagram in anagrams %}
         <script>
+            cnt2 =  cnt2 + {{ anagram.counter2 }};
             cnt =  cnt + {{ anagram.counter1 }};
             document.getElementById("cnt1").innerHTML =
-            "Their are total <b>" + cnt + " </b> words in your anagram engine";
+            "Their are total <b>" + cnt2 + " </b> unique anagrams <br> Their are total <b>" + cnt + " </b> words in your anagram engine";
         </script>
         {% endfor %}
     </div>

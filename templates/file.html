@@ -97,14 +97,15 @@
       <a style="float:right"  href="{{ logout_url }}"><i class="fa fa-sign-out"></i>Logout</a>
   </div>
     <div class ="header">
-    <h3>&nbsp;&nbsp;Enter a Word to generate anagrams and sub-anagrams</h3>
+    <h3>&nbsp;&nbsp;Choose a file to upload</h3><br>
     </div>
     <div class ="form">
-    <form action = "/generateResult" method ="get">
-        <label for="word">Your Word</label><br>
-        <input type = "text" name = "searchVal"/><br>  <br><br>
-        <input type = "submit" value = "Generate" name="button">&nbsp;&nbsp;
+    <form action = "/file" method ="post" enctype="multipart/form-data">
+        <label for="word">File Path</label>&nbsp;
+        <input  multiple id="file" type = "file" name = "attachments"/><br>  <br><br>
+        <input type = "submit" value = "Upload" name="button">&nbsp;&nbsp;
     </form>
-    </div>
+      </div><br>
+
   </body>
   </html>

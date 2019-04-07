@@ -10,4 +10,5 @@ app = webapp2.WSGIApplication([
     Route('/searchResult', handler = 'searchResults.SearchResult'),
     Route('/generate', handler = 'generate.Generate'),
     Route('/generateResult', handler = 'generateResult.GenerateHandler'),
+    Route('/file', handler = 'file.FileHandler'),
 ],debug=True)

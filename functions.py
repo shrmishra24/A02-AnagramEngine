@@ -31,6 +31,7 @@ def add_new_anagram(stringVal, anagram_id, anagram_key, myuser):
     anagramDB.length = len(stringVal)
     anagramDB.user_id = myuser.key.id()
     anagramDB.counter1 = anagramDB.counter1+1
+    anagramDB.counter2 = anagramDB.counter2+1
     anagramDB.put()
 
 
@@ -96,4 +97,5 @@ def store_sub_anagrams_no_key_exists(stringVal, anagram_id, anagram_key, myuser)
         anagramDB.length = len(stringVal)
         anagramDB.user_id = myuser.key.id()
         anagramDB.counter1 = anagramDB.counter1+1
+        anagramDB.counter2 = anagramDB.counter2+1
         anagramDB.put()

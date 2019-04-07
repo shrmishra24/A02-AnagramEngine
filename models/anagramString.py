@@ -5,4 +5,4 @@ class AnagramStringsDB(ndb.Model):
     length = ndb.IntegerProperty()
     user_id = ndb.StringProperty()
     counter1 = ndb.IntegerProperty(default = 0)
-    counter2 = ndb.IntegerProperty()
+    counter2 = ndb.IntegerProperty(default = 0)
