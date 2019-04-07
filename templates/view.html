@@ -50,7 +50,7 @@
       }
 
     .form{
-      width: 60%;
+      width: 75%;
       border-radius: 5px;
       background-color: #f2f2f2;
       padding: 20px;
@@ -96,29 +96,48 @@
       <a style="float:right"  href="{{ logout_url }}"><i class="fa fa-sign-out"></i>Logout</a>
   </div>
     <div class ="header">
-    <h3>&nbsp;&nbsp;Listing all anagrams and sub-anagrams</h3>
+    <h3>&nbsp;&nbsp;Listing your Anagrams</h3>
     </div>
-    <div class ="form">
-      {% if search_result %}
+      <div class ="form" >
+      {% if anagrams %}
           <table>
-              <tr>
-                  <th>
-                        {{ searchVal }}
-                  </th>
-              </tr>
-              {% for word in search_result %}
+              {% for anagram in anagrams %}
                   <tr>
-                      <td>{{ word }}</td>
+                      <!-- <form method="get" action="/"> -->
+                          <td>
+                              <b>{{ anagram.sortedString }}</b>
+                          </td>
+                          <td>
+                              {% for word in anagram.stringVal %}
+                                  {% if loop.index == anagram.stringVal | length %}
+                                      {{ word }}
+                                  {% else %}
+                                      {{ word }},
+                                  {% endif %}
+                              {% endfor %}
+                          </td>
+                          <!-- <td >
+                              <input type="hidden" name="anagram_id" value="{{ anagram.stringVal }}"/>
+                              <input type="submit" name="button" value="Delete"/>
+                          </td> -->
+                      <!-- </form> -->
                   </tr>
+                  <!-- <tr>
+                    <td>Total words are = {{anagram.counter1}}</td>
+                  </tr> -->
               {% endfor %}
           </table>
-      {% else %}
-          No anagrams found for this word!<br>
       {% endif %}
-      <form action = "/generateResult" method ="post">
-          <input type = "hidden" value = "{{ searchVal }}" name="searchVal">
-          <input type = "submit" value = "Add in your List" name="button">&nbsp;&nbsp;
-      </form>
+    </div><br>
+    <div class= "form" id = "cnt1">
+      <script>var cnt=0;</script>
+        {% for anagram in anagrams %}
+        <script>
+            cnt =  cnt + {{ anagram.counter1 }};
+            document.getElementById("cnt1").innerHTML =
+            "Their are total <b>" + cnt + " </b> words in your anagram engine";
+        </script>
+        {% endfor %}
     </div>
   </body>
   </html>
